@@ -1,0 +1,28 @@
+<div class="bg" style="--image-url: url(../images/moviesback.jpg)"></div>
+
+<h1>Movies search catalog</h1>
+<div class="centered">
+    <input id="tbSearch" placeholder="Enter title..." class="form-control">
+    <button id=btnSearch type="submit" data-bind="click: getMovies" class="btn btn-primary">Search</button>
+</div>
+
+<div class="centered">
+    <ul id="moviesList" data-bind="foreach: movies, visible: movies().length > 0">
+        <li>
+            <div class="titlesDiv">
+                <span><strong>Title:</strong></span>
+                <span data-bind="text: title"></span>
+            </div>
+            <div>
+                <img data-bind="attr: {src: poster}, click: openPage(posterLink)" />
+            </div>
+        </li> 
+    </ul>
+    <div id="divNoResults" data-bind="visible: noResults" class="alert alert-info w-25 p-3">No movies found!</div> 
+</div>
+
+<link type="text/css" href="css/site.css" rel="stylesheet">
+<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="lib/knockout.min.js"></script>
+<script type="text/javascript"src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="movies.js"></script>
